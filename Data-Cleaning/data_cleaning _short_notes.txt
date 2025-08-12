@@ -1,0 +1,124 @@
+data cleaning correct order:- 
+
+1. standardize column names 
+
+2. create/construct new columns if a column has 2 or more different categories. 
+
+3. remove duplicate rows (if entire row duplicate). if not, check at schema level if unique identifiers of each row is duplicate or not. if duplicate, drop using those columns in subset. 
+
+4. fix data types 
+
+5. handle missing values 
+
+6. detect and handle outliers
+
+7. fix Inconsistencies, Inaccuracies & Invalid Entries
+
+8. Binning (if required)
+
+9. encoding categorical variables
+
+10. feature scaling
+
+11. handling messy data
+
+
+handling missing values:-
+
+1. categorical:- 
+(i) short text (lesser unique values)
+<5% ----> drop rows
+between 5% and 30% ----> mode imputation
+>30% ------> impute 'missing'
+>50% ------> drop entire column unless column highly critical
+
+(ii) long free text (for eg:- 30 word description)
+<5% ----> drop rows
+>5% ----> impute 'missing' as imputing mode here is senseless as not 2 different observations have same descriptions. 
+>50% ------> drop entire column unless column highly critical
+
+2. datetime:- 
+<5% ----> drop rows
+between 5% and 30% ----> impute median date or business logic: shipping date = order_date + avg_shipping_time
+>30% ----> missing
+>50% ----> drop column unless column highly critical
+
+3. numerical:- 
+<5% ---> drop rows
+between 5% and 20% ---> mean/median imputation
+between 20% to 50% ---> knn or mice imputer because introduces variability thereby preserving distribution and not increasing outliers. moreover, as it is multivariate imputation (considers values of other columns as well), hence preserves the internal relationships between columns. 
+>50% ----> drop column unless column highly critical
+
+
+
+outlier detection and handling:- 
+
+first of all, check skewness and distribution for each numerical column. if not normal, check distr for seeing if skewed dist or dist is unclear. then pick one of the method below:- 
+1. z score method :- used only if column dist is normal. check using skewness. NO need to box plot as it is done only during iqr method for visual check. if box plot done here, in case of normal dist, the visual might seem wrong as some points which are outliers for iqr may not be for z score. 
+max = u + 3 std
+min = u - 3 std
+
+2. iqr method:- when dist is skewed. for visual, do box plotting. 
+iqr = q3 - q1
+max = q3 + 1.5 iqr
+min = q1 - 1.5 iqr
+
+
+3. percentile method:- if following neither dist
+lower_cap = df['col'].quantile(0.01)
+upper_cap = df['col'].quantile(0.99)
+
+but, main question for all the 3 methods:- 
+when to trim and when to cap? 
+i) trimming:- 
+if inside the column, impossible values like negative heights, trim/remove the rows having outliers, but most importantly, if the data is large enough and removal of few rows won't hurt. otherwise, you may also correct the negative heights or impossibly large heights by capping them to an avg range.
+
+ii) capping:- when outliers are extreme but not invalid. for eg:- height of 2.72m very extreme but not invalid because such height exists. so do capping then. 
+
+one hot encoding doubt:- 
+i) ordinal encoding:- when order matters in category, like:-
+mild     - 1
+hot      - 2
+very hot - 3
+
+advantage:- no extra columns hence no curse of dimensionality (cod)
+
+ii) label/target encoding:- ONLY used for target column, that too, if categorical of course. here, order doesn't matter, but is just like ordinal encoding:- 
+malignant  - 1
+benign     - 0 
+
+ii) one hot encoding:- when order doesn't matter much. 
+Disadvantage to handle:- COD
+
+encoding doubt:- 
+in case of one hot encoding, say, we have 10 types of categories in a categorical column. we can convert the least frequent columns into 'others' otherwise curse of dimensionality. but this is my BIG doubt. As in, how many categories to consider and converting rest to 'others' if we have too many categories in a column? how many categories could be said to be enough for one hot encoding, preventing CoD? 
+ANS) 10-15 columns for each feature. but if cardinality still high, do frequency encoding --> encode the frequency of that value instead of the value itself, because it will equally put the same weightage because if frequency too high, a higher value gets imputed (imputation of frequency is done but higher the freq, higher the freq count). then, after encoding done, we know that scaling comes at last. scale this column too in order to bring everything on a same scale. 
+
+fix Inconsistencies, Inaccuracies & Invalid Entries:- 
+inconsistencies are mainly in categorical columns. 
+first, bring everything to a common ground:
+say you have:- 
+brands:-
+at & t, apple-iPhone, Apple iphone, aple iPhon 
+df['cat_col'].str.strip().str.split(',').str.replace('-','').str.replace('&','').str.lower()
+
+we get:- 
+at and t, apple iphone, apple iphone, aple iphon
+
+we can see that apple iphone and aple iphon clearly mean the same. hence, use replace:- 
+
+map = {
+  'aple iphon': 'apple iphone'
+}
+
+df['brands'] = df['brands'].replace(map)
+ 
+now, if you want to check and visualize the brands individually, we explode:- 
+before using explode --> imp --> make a copy of df, dont use df itself as it will increase the number of rows, because basically in explode:- 
+at and t, apple iphone, apple iphone
+df['brands'].explode(), this happens:
+at and t
+apple iphone 
+apple iphone
+
+hence always make a copy first:- df_cpy = df and then apply explode. 
