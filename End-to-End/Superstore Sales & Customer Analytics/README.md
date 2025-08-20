@@ -6,7 +6,7 @@ A full-stack analytics project on the **Superstore** dataset covering data clean
 This repository is organized to be fully reproducible and portfolio‑ready.
 
 ## Dataset
-- Source: Superstore dataset [https://www.kaggle.com/datasets/vivek468/superstore-dataset-final]
+- Source: [Superstore dataset](https://www.kaggle.com/datasets/vivek468/superstore-dataset-final)
 - Shape: **9994 rows × 21 columns**
 - Example columns: row_id, order_id, order_date, ship_date, ship_mode, customer_id, customer_name, segment, country, city...
 - Detected date columns: order_date, ship_date
