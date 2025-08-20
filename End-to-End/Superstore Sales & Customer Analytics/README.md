@@ -12,7 +12,7 @@ This repository is organized to be fully reproducible and portfolio‑ready.
 - Detected date columns: order_date, ship_date
 
 ## Tech Stack
-pandas, numpy, matplotlib, seaborn, prophet, mysql
+pandas, numpy, matplotlib, seaborn, prophet, mysql, powerbi
 
 ## Repository Structure
 ```
@@ -28,22 +28,27 @@ pandas, numpy, matplotlib, seaborn, prophet, mysql
 
 ## Workflow
 1. **Data Cleaning & EDA** (`01_data_cleaning_and_eda.ipynb`)  
-   - Steps: Data cleaning, EDA, Univariate analysis (numerical columns), Conclusions:-, Univariate analysis (Categorical columns), Conclusions:-, Bivariate analysis (numeric - numeric), Conclusions:-, Bivariate analysis (numeric - categorical), Conclusions:-...
+   - Steps: Data cleaning step-by-step, EDA (Univariate, Bivariate, Multivariate), Drawing out key data insights and Business insights along with recommendations.
 2. **SQL KPI Queries** (`02_sql_kpi_queries.ipynb`)  
-   - KPIs computed via SQL (examples below). Headings detected: Total sales by region, Top 5 products by Profit, Monthly sales trend (year-wise), Top 3 customers by sales, Average order value (AOV), Customer lifetime value (cltv), Profit margin (%), Sales by Category and Sub-Category, Discount Impact on Profit, Top 3 States by Sales in Each Region...
+   - KPIs computed via SQL included:  
+     - **Total Sales by Region** – compare performance across regions  
+     - **Top 5 Products by Profit** – identify most profitable products  
+     - **Monthly Sales Trend (Year-wise)** – track seasonality and growth  
+     - **Top 3 Customers by Sales** – highlight key customer accounts  
+     - **Average Order Value (AOV)** – measure customer spending behavior  
+     - **Customer Lifetime Value (CLTV)** – estimate long-term customer profitability  
+     - **Profit Margin (%)** – monitor margins across sales  
+     - **Sales by Category and Sub-Category** – analyze product hierarchy performance  
+     - **Discount Impact on Profit** – evaluate effect of discounting on margins  
+     - **Top 3 States by Sales in Each Region** – find best-performing geographies 
 3. **Forecasting & RFM** (`04_sales_forecasting_rfm_segmentation.ipynb`)  
-   - Prophet-based time series forecasting and customer RFM scoring. Headings detected: 6 month Sales forecasting using Prophet model, RFM Customer Segmentation
+    - Conducted advanced analytics combining **time-series forecasting** and **customer segmentation**:  
+     - **6-Month Sales Forecasting with Prophet** – captured seasonality (Q4 spikes, Q1 dips) and generated forward-looking trends to support inventory and promotion planning.  
+     - **RFM Customer Segmentation** – scored customers on **Recency, Frequency, and Monetary value** to classify them into high-value, loyal, and at-risk cohorts; provided actionable retention and reactivation strategies.  
 4. **Dashboarding** (`03_powerbi_dashboard.pbix`)  
-   - Interactive visuals to explore sales, profit, customers, and regional trends.
+   - Interactive visuals to explore most relevant business KPIs. 
 5. **Final Insights Report** (`05_final_insights.pdf`)  
    - Business insights and recommendations synthesizing all steps.
-
-## Example SQL KPIs
-```
-query = """ select Region, round(sum(Sales),2) as 'total_sales', round(sum(Profit),2) as 'total_profit' from
-
-query = """ select `Product Name` as 'prod_name' , round(sum(Profit),2) as 'profit' from superstore
-```
 
 ## Reproducibility – How to Run
 
