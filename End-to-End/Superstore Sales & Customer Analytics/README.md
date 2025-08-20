@@ -103,3 +103,6 @@ Ensure these are installed:
 - Superstore dataset (for educational/portfolio use)
 - Prophet by Meta
 - Power BI Desktop
+
+## Power BI Dashboard
+![Power BI Dashboard](./06_images/superstore_dashboard_ss.png)
