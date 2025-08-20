@@ -6,7 +6,7 @@ A full-stack analytics project on the **Superstore** dataset covering data clean
 This repository is organized to be fully reproducible and portfolio‑ready.
 
 ## Dataset
-- Source: Superstore dataset (local copy: `cleaned_superstore.csv`)
+- Source: Superstore dataset [https://www.kaggle.com/datasets/vivek468/superstore-dataset-final]
 - Shape: **9994 rows × 21 columns**
 - Example columns: row_id, order_id, order_date, ship_date, ship_mode, customer_id, customer_name, segment, country, city...
 - Detected date columns: order_date, ship_date
@@ -28,7 +28,7 @@ pandas, numpy, matplotlib, seaborn, prophet, mysql
 
 ## Workflow
 1. **Data Cleaning & EDA** (`01_data_cleaning_and_eda.ipynb`)  
-   - Steps (headings detected): Data cleaning, EDA, Univariate analysis (numerical columns), Conclusions:-, Univariate analysis (Categorical columns), Conclusions:-, Bivariate analysis (numeric - numeric), Conclusions:-, Bivariate analysis (numeric - categorical), Conclusions:-...
+   - Steps: Data cleaning, EDA, Univariate analysis (numerical columns), Conclusions:-, Univariate analysis (Categorical columns), Conclusions:-, Bivariate analysis (numeric - numeric), Conclusions:-, Bivariate analysis (numeric - categorical), Conclusions:-...
 2. **SQL KPI Queries** (`02_sql_kpi_queries.ipynb`)  
    - KPIs computed via SQL (examples below). Headings detected: Total sales by region, Top 5 products by Profit, Monthly sales trend (year-wise), Top 3 customers by sales, Average order value (AOV), Customer lifetime value (cltv), Profit margin (%), Sales by Category and Sub-Category, Discount Impact on Profit, Top 3 States by Sales in Each Region...
 3. **Forecasting & RFM** (`04_sales_forecasting_rfm_segmentation.ipynb`)  
