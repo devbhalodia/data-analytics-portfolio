@@ -80,7 +80,7 @@ Three supervised models were trained on the engineered dataset (encoding + scali
 
 ---
 
-## 📈 Power BI Dashboard
+## Power BI Dashboard
 **Tabs:** Executive KPIs, Demographics, Products, Engagement, Risk.
 
 **KPIs (examples):**
@@ -93,6 +93,8 @@ Three supervised models were trained on the engineered dataset (encoding + scali
 - Churn by Contact Frequency
 
 > Distinct visuals per KPI (cards, donut, bar, line, treemap, funnel), high‑contrast color coding by risk, and consistent typography for readability.
+
+![Dashboard Screenshot](assets/dashboard.png)
 
 ---
 
