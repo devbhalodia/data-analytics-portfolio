@@ -94,7 +94,7 @@ Three supervised models were trained on the engineered dataset (encoding + scali
 
 > Distinct visuals per KPI (cards, donut, bar, line, treemap, funnel), high‑contrast color coding by risk, and consistent typography for readability.
 
-![Dashboard Screenshot](assets/dashboard.png)
+![Dashboard Screenshot](assets/dashboard_ss.png)
 
 ---
 
