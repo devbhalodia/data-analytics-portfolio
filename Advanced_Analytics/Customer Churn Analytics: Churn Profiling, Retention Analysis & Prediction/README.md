@@ -1,7 +1,6 @@
 # Customer Churn Analytics: Churn Profiling, Retention Analysis, Prediction & Dashboard (SQL · Python · Power BI)
 
 An end‑to‑end churn analytics project covering **churn profiling (uni/bivariate)**, **retention analysis (risk segmentation and distribution)**, **predictive modeling (3 classifiers)**, and a **Power BI dashboard**. 
-It’s built to be *portfolio‑ready* as well as *production‑pragmatic*: raw analysis in notebooks, KPI SQL, and an interactive dashboard you can hand to stakeholders.
 
 ---
 
@@ -72,10 +71,10 @@ Three supervised models were trained on the engineered dataset (encoding + scali
 
 ---
 
-## 🧭 Retention Playbook (from analysis)
+## Retention Recommendations Overview
 - **Prioritize High‑Risk segment** (2/3 of all churners): targeted offers, service recovery, proactive outreach.
-- **Re‑engage inactive customers (4+ months):** reminders + time‑bound rewards; nudge back into a healthy usage cadence.
-- **Address dissatisfaction** signaled by **4+ contacts**: faster issue resolution, case ownership, VOC loops.
+- **Re‑engage inactive customers (4+ months):** reminders + time‑bound rewards; promote regular spending through limited time rewards or discounts.
+- **Address dissatisfaction** signaled by **4+ contacts**: faster issue resolution, Ensure customer problems are fully resolved on fewer contacts, Monitor dissatisfaction for high-contact customers.
 - **Right‑size products:** encourage **1–3 product holders** to adopt more products; steer **low‑income platinum** users toward affordable tiers; offer loyalty bonuses to **4+ product holders**.
 - **Usage‑linked incentives:** tiered cashback/milestone rewards to lift **transaction counts/amounts** and reduce churn propensity.
 
