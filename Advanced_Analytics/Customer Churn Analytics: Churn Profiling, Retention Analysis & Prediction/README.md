@@ -23,17 +23,14 @@ An end‑to‑end churn analytics project covering **churn profiling (uni/bivari
 ## Repository Structure
 ```
 .
-├─ notebooks/
-│  ├─ Churn_Profiling_&_Retention_Analysis.ipynb
-│  └─ Churn_Prediction.ipynb
-├─ dashboard/
-│  └─ Dashboard.pbix
-├─ reports/
-│  └─ report.pdf
+
+├─ Churn_Profiling_&_Retention_Analysis.ipynb
+├─ Churn_Prediction.ipynb
+├─ Dashboard.pbix
+├─ report.pdf
+├─ kpis.sql
 ├─ assets/
-│  └─ dashboard.png            # add/update a screenshot for the README hero
-├─ sql/
-│  └─ kpis.sql                 # same queries as in this README
+│  └─ dashboard.png        # screenshot for README
 └─ README.md
 ```
 
