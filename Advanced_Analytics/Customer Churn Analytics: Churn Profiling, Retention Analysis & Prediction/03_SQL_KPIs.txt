@@ -1,0 +1,59 @@
+1. Overall Churn Rate (%) 
+use churn;
+SELECT round(avg(attrition_flag),2)*100 as 'overall_churn_rate' FROM df_cpy;
+
+2. Customer Distribution by Risk Segment (%)
+use churn;
+select risk, count(*)*100/cnt as 'overall_contribution' from (select risk,
+count(*) over () as 'cnt'
+from df_cpy) t
+group by risk
+
+3. Churn Contribution by Risk Segment (%)
+use churn;
+select risk, count(*)*100/cnt as 'overall_contribution' from (select risk,
+count(*) over () as 'cnt'
+from df_cpy
+where attrition_flag = 1) t
+group by risk
+
+4. churn rate by gender
+use churn;
+select gender, round(avg(attrition_flag),2)*100 as 'churn_rate' from df_cpy
+group by gender
+
+5. churn rate by income category
+use churn;
+select income_category, round(avg(attrition_flag),2)*100 as 'churn_rate' from df_cpy
+group by income_category
+order by round(avg(attrition_flag),2) desc
+
+6. churn rate by education level
+use churn;
+select education_level, round(avg(attrition_flag),2)*100 as 'churn_rate' from df_cpy
+group by education_level
+order by round(avg(attrition_flag),2) desc
+
+7. churn rate by card category
+use churn;
+select card_category, round(avg(attrition_flag),2)*100 as 'churn_rate' from df_cpy
+group by card_category
+order by round(avg(attrition_flag),2) desc
+
+8. churn rate by number of products held
+use churn;
+select total_relationship_count, round(avg(attrition_flag),2)*100 as 'churn_rate' from df_cpy
+group by total_relationship_count
+order by round(avg(attrition_flag),2) desc
+
+9. churn rate by inactivity level
+use churn;
+select months_inactive_12_mon, round(avg(attrition_flag),2)*100 as 'churn_rate' from df_cpy
+group by months_inactive_12_mon
+order by round(avg(attrition_flag),2) desc
+
+10. churn rate by contacts frequency
+use churn;
+select contacts_count_12_mon, round(avg(attrition_flag),2)*100 as 'churn_rate' from df_cpy
+group by contacts_count_12_mon
+order by round(avg(attrition_flag),2) desc
