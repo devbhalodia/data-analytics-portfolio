@@ -30,7 +30,7 @@ An end‑to‑end churn analytics project covering **churn profiling (uni/bivari
 ├─ report.pdf
 ├─ kpis.sql
 ├─ assets/
-│  └─ dashboard.png        # screenshot for README
+│  └─ dashboard_ss.png        # screenshot for README
 └─ README.md
 ```
 
