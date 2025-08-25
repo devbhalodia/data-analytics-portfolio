@@ -24,11 +24,11 @@ An end‑to‑end churn analytics project covering **churn profiling (uni/bivari
 ```
 .
 
-├─ Churn_Profiling_&_Retention_Analysis.ipynb
-├─ Churn_Prediction.ipynb
-├─ Dashboard.pbix
-├─ report.pdf
-├─ kpis.sql
+├─ 01_Churn_Profiling_&_Retention_Analysis.ipynb
+├─ 02_Churn_Prediction.ipynb
+├─ 03_SQL_KPIs.txt
+├─ 04_Dashboard.pbix
+├─ 05_Report.pdf
 ├─ assets/
 │  └─ dashboard_ss.png        # screenshot for README
 └─ README.md
