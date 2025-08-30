@@ -100,8 +100,9 @@ The Power BI dashboard enables interactive exploration of:
 - Regional performance  
 - Product category contributions  
 - Discount vs Profit impact  
-- RFM segmentation insights  
+- RFM segmentation insights
 
+![Power BI Dashboard](./06_images/superstore_dashboard_ss.png)
 ---
 
 ## Tech Stack  
