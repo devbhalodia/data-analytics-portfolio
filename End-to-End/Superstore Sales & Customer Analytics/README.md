@@ -1,6 +1,6 @@
-# 📊 Superstore Sales & Customer Analytics  
+# Superstore Sales & Customer Analytics  
 
-## 📌 Objective  
+## Objective  
 The aim of this project is to analyze **Superstore sales and customer behavior** to identify key drivers of business performance, uncover growth opportunities, and provide actionable recommendations.  
 This end-to-end project covers:  
 - **Data Cleaning** for accuracy and consistency  
@@ -12,7 +12,7 @@ This end-to-end project covers:
 
 ---
 
-## 🗂️ Data Source  
+## Data Source  
 The dataset used is the **Superstore Dataset** from Kaggle:  
 🔗 [Superstore Dataset (Kaggle)](https://www.kaggle.com/datasets/vivek468/superstore-dataset-final)  
 
@@ -26,16 +26,16 @@ Each row represents a **unique customer transaction**, containing details such a
 
 ---
 
-## ⚙️ Workflow  
+## Workflow  
 
 1. **Data Cleaning**  
    - Fixed datatypes, standardized column names  
    - Checked for nulls & duplicates (none found)  
 
 2. **Exploratory Data Analysis (EDA)**  
-   - **Univariate Analysis** → category-wise & region-wise insights  
-   - **Bivariate Analysis** → sales, profit, discount & quantity relations  
-   - Key takeaway: Profitability is volatile across products and shipping modes.  
+   - **Univariate Analysis** 
+   - **Bivariate Analysis** 
+   - Each of the analysis includes Data & Business Insights along with Recommendations. 
 
 3. **Time Series Forecasting (Prophet)**  
    - Predicted **next 6 months sales**  
@@ -52,15 +52,19 @@ Each row represents a **unique customer transaction**, containing details such a
 5. **SQL KPI Extraction**  
    - Queried important KPIs such as:  
      - Average Order Value (AOV)  
-     - Profit Margin  
-     - Sales & Profit by Region  
-     - Category/Sub-Category contribution  
-     - Discount impact on profits  
+     - Overall Profit Margin
+     - Top 5 Products by Profit
+     - Total Sales vs Total Profit by Region 
+     - Total Sales by Category and Sub-Category 
+     - Yearly Profit and YoY Growth 
+     - Monthly sales by Year
+     - Average Profit by Discount Range
+     - Profit Contribution(%) by Category
    - Integrated into a **Power BI Dashboard**  
 
 ---
 
-## 📈 Key Insights  
+## Key Insights  
 
 - **Profitability Volatility** → High profits & heavy losses exist across shipping modes, categories, and discounts.  
 - **Seasonality Matters** → Sales peak in Q4 (holidays) and recover every April, but slow down in mid-year.  
@@ -70,7 +74,7 @@ Each row represents a **unique customer transaction**, containing details such a
 
 ---
 
-## 💡 Recommendations  
+## Recommendations  
 
 1. **Seasonal Planning**  
    - Stock up & strengthen logistics for Q4 & Jan–Apr peaks.  
@@ -90,7 +94,7 @@ Each row represents a **unique customer transaction**, containing details such a
 
 ---
 
-## 📊 Dashboard Preview  
+## Dashboard Preview  
 The Power BI dashboard enables interactive exploration of:  
 - Sales & Profit trends  
 - Regional performance  
@@ -100,7 +104,7 @@ The Power BI dashboard enables interactive exploration of:
 
 ---
 
-## 🛠️ Tech Stack  
+## Tech Stack  
 
 - **Languages/Tools:** Python (Pandas, Matplotlib, Seaborn, Prophet), SQL, Power BI  
 - **Libraries:** Prophet, Numpy, Scikit-learn, Matplotlib, Seaborn  
@@ -109,6 +113,6 @@ The Power BI dashboard enables interactive exploration of:
 
 ---
 
-## ✅ Conclusion  
+## Conclusion  
 This project combines **data analysis, forecasting, and segmentation** into a complete end-to-end business intelligence workflow.  
 By addressing **pricing inefficiencies**, improving **customer retention**, and leveraging **seasonal demand trends**, the business can strengthen profitability and ensure sustainable growth.  
