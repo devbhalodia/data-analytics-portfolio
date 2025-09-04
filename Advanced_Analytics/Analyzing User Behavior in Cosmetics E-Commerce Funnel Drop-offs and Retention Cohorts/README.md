@@ -60,7 +60,7 @@ An interactive Power BI dashboard was created with 7 visuals:
 5. Clustered Bar – Conversion by top brands  
 6. Matrix Heatmap – Retention cohorts  
 7. KPI Cards – Overall Conversion % and Cart Abandonment %  
-
+![Dashboard Screenshot](assets/dashboard_ss.png)
 ---
 
 ## Key Insights  
