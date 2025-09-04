@@ -86,7 +86,7 @@ An interactive Power BI dashboard was created with 7 visuals:
 01_Funnel_Analysis_&_Retention_Cohort.ipynb   # Python analysis notebook
 02_Dashboard.pbix                            # Power BI dashboard template
 03_Report.pdf                                # Detailed project report
-images/                                      # Dashboard screenshot
+assets/                                      # Dashboard screenshot
 README.md                                    # Project documentation
 ```
 
