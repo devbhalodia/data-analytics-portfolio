@@ -60,23 +60,6 @@ The goal is to help banks **optimize marketing resources, target high-value segm
 
 ---
 
-## 🚀 How to Run  
-1. Clone this repository  
-   ```bash
-   git clone https://github.com/your-username/advanced-customer-analytics.git
-   cd advanced-customer-analytics
-   ```  
-2. Install dependencies  
-   ```bash
-   pip install -r requirements.txt
-   ```  
-3. Run Jupyter notebooks  
-   ```bash
-   jupyter notebook
-   ```  
-
----
-
 ## 📊 Tools & Libraries  
 - **Python**: pandas, numpy, matplotlib, seaborn  
 - **ML**: mlxtend (Apriori), scikit-learn (KMeans, validation metrics)  
