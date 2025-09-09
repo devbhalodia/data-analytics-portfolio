@@ -61,11 +61,10 @@ It contains details of funding for Indian startups, including **funding amount, 
 ---
 
 ## Dashboard
-The **Power BI Dashboard (`4_Dashboarding.pbix`)** provides:
-- YoY Funding Trends 📈  
-- Top Sectors & Locations 📍  
-- Investor Concentration 📊  
-- Funding Diversity & Velocity ⚡  
+The interactive **Power BI Dashboard (`4_Dashboarding.pbix`)** provides a comprehensive view of the **10 SQL KPIs** implemented in this project.  
+It visually tracks key metrics computed using MySQL enabling stakeholders to quickly derive insights.  
+
+![Power BI Dashboard](./assets/dash_ss.png)
 
 ---
 
