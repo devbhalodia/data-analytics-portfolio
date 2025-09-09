@@ -1,0 +1,92 @@
+Indian startup kpis:-
+
+1. total Funding in 1000 cr:
+ 
+use indian_startup;
+select round(sum(amount_in_cr)/1000.0,2) as 'total_funding_amt(in Kcr)' from cleaned_df
+
+2. Number of Deals:
+
+use indian_startup; 
+select count(*) as 'number_of_deals' from cleaned_df
+
+3. Average Deal Size:
+
+use indian_startup;
+select round(sum(amount_in_cr)/count(*),2) as 'avg_deal_size' from cleaned_df
+
+4. yoy% growth: 
+
+use indian_startup;
+select year, round((total_funding - lagged)*100/lagged , 2) as 'YoY%' from (select *, 
+lag(total_funding) over (order by year) as 'lagged'
+from (select year(date) as 'year' , round(sum(amount_in_cr),2) as 'total_funding'  from (select * from cleaned_df
+where date != '') t
+group by year(date) 
+order by year(date) asc) m) z
+
+5. top 10 funding stages by total funding:
+
+select investment_type, round(sum(amount_in_cr),2) as 'total_funding' from cleaned_df
+group by investment_type
+order by round(sum(amount_in_cr),2) desc limit 10
+ 
+6. top 5 sectors by CAGR of total funding:
+
+use indian_startup;
+select industry_vertical, round(power((lv/fv), 1/cnt) - 1, 2) as 'CAGR'  from (select distinct industry_vertical, fv, lv, cnt from (select *,
+first_value(sum_per_year) over (partition by industry_vertical order by year asc) as 'fv',
+first_value(sum_per_year) over (partition by industry_vertical order by year desc) as 'lv',
+count(*) over (partition by industry_vertical) as 'cnt'
+from (select distinct industry_vertical, year, 
+sum(amount_in_cr) over (partition by industry_vertical, year) as 'sum_per_year'
+from (select industry_vertical, year(date) as 'year', amount_in_cr from cleaned_df
+where date != '') t) m) e ) s 
+order by power((lv/fv), 1/cnt) - 1 desc limit 5
+
+7. top 5 locations by total funding:
+
+use indian_startup;
+select city_location, round(sum(amount_in_cr),2) as 'total_funding' from cleaned_df
+group by city_location 
+order by round(sum(amount_in_cr),2) desc limit 5
+
+8. investor concentration index:
+
+use indian_startup;
+select distinct investors_name, round(investor_funding*100/total_funding,2) as 'inv_conc_index' from (select investors_name,
+sum(amount_in_cr) over (partition by investors_name) as 'investor_funding', 
+total_funding
+from (select e1.investors_name, e1.amount_in_cr, e2.total_funding from exploded_df e1
+left join (
+select *, 
+sum(amount_in_cr) over() as 'total_funding'
+from cleaned_df) e2
+on e1.startup_name = e2.startup_name) t) m
+order by round(investor_funding*100/total_funding,2) desc limit 5
+
+9. Startup funding velocity:
+
+use indian_startup;
+select * from (select industry_vertical, count(*) as 'startups_analyzed', sum(diff)/count(*) as 'avg_days_btw' from (select *,
+datediff(date, lag_date) as 'diff'
+from (select *,
+lag(date) over (partition by industry_vertical order by date) as 'lag_date'
+from (select distinct industry_vertical, startup_name, date from cleaned_df
+where date != '') t
+) m) e
+group by industry_vertical) h
+where avg_days_btw is not null and startups_analyzed > 5
+order by avg_days_btw asc
+
+10. Startup Funding Diversity Index: 
+
+use indian_startup;
+select industry_vertical, sum(cnt)/startups_analyzed as 'avg_uniq_inv_per_startup', startups_analyzed from (select *,
+count(*) over (partition by industry_vertical, startup_name) as 'cnt',
+count(*) over (partition by industry_vertical) as 'startups_analyzed'
+from 
+(select distinct industry_vertical, startup_name, investors_name from  exploded_df) t) m
+where startups_analyzed > 15
+group by industry_vertical
+order by sum(cnt)/startups_analyzed desc
