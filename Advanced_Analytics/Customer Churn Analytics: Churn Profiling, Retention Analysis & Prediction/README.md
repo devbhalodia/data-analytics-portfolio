@@ -40,6 +40,7 @@ An end‑to‑end churn analytics project covering **churn profiling (uni/bivari
 A standard credit‑card churn dataset with demographic features (gender, age, dependents, income, education), account attributes (card category, tenure, products), engagement (inactivity months, contact frequency), and monetary usage (transactions, amounts, revolving balance, utilization).
 
 Dataset: [Kaggle – Credit Card Churn Prediction](https://www.kaggle.com/datasets/anwarsan/credit-card-bank-churn)  
+
 ---
 
 ## Highlights & Insights
