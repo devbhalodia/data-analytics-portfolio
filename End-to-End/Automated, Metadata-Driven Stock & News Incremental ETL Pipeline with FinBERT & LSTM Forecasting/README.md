@@ -52,8 +52,7 @@ project/
 │       └── news_clean.parquet
 │
 ├── notebooks/
-│   ├── eda.ipynb
-│   ├── sentiment_analysis.ipynb
+│   ├── eda_&_sentiment_analysis.ipynb
 │   └── forecasting_lstm.ipynb
 │
 ├── requirements.txt
