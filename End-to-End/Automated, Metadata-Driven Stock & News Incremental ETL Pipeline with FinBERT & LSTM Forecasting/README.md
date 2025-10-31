@@ -31,8 +31,11 @@ It is designed for **incremental updates**, **zero manual intervention**, and **
 
 ## Project Structure
 
-``` bash
-project/
+Got it — here’s the corrected Markdown directory structure reflecting that `run_etl.bat` is in the **root directory**, not inside `etl/`:
+
+
+```
+stock_sentiment_pipeline/
 │
 ├── etl/
 │   ├── config.yaml
@@ -40,8 +43,7 @@ project/
 │   ├── transform.py
 │   ├── load_mysql.py
 │   ├── run_etl.py
-│   ├── metadata.json
-│   └── run_etl.bat
+│   └── metadata.json
 │
 ├── data/
 │   ├── raw/
@@ -55,9 +57,15 @@ project/
 │   ├── eda_&_sentiment_analysis.ipynb
 │   └── forecasting_lstm.ipynb
 │
+├── dashboard/
+│   └── stock_sentiment_dashboard.pbix
+│
+├── .env
+├── run_etl.bat
 ├── requirements.txt
 └── README.md
 ```
+
 
 ------------------------------------------------------------------------
 
