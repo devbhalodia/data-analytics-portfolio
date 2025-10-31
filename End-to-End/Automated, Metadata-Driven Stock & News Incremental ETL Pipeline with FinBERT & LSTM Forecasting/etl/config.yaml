@@ -1,0 +1,39 @@
+
+tickers:
+  - AAPL
+  - MSFT
+  - GOOGL
+  - JPM
+  - BAC
+  - AMZN
+  - WMT
+  - TSLA
+  - GM
+  - XOM
+  - CVX
+  - PG
+  - META
+  - AMD
+  - NFLX
+  - ZS
+  - TSM
+  - KO
+  - F
+  - COST
+  - DIS
+  - VZ
+  - CRM
+  - INTC
+  - BA
+  - BX
+  - PYPL
+  - NIO
+
+news_api_key: "<ENV:NEWSAPI_KEY>"
+fred_api_key: "<ENV:FRED_API_KEY>"
+
+data_dir: "data"
+raw_dir: "data/raw"
+processed_dir: "data/processed"
+
+database_url: "<ENV:DATABASE_URL>"
