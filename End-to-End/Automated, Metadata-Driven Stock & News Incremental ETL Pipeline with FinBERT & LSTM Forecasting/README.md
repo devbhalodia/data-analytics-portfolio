@@ -122,11 +122,7 @@ stock_sentiment_pipeline/
 
 ## Power BI Dashboard
 
-Connected directly to **MySQL** to visualize: - Average daily return by
-ticker\
-- Month-over-month price trend\
-- Price vs sentiment overlay\
-- Sentiment distribution donut chart
+Connected the **MySQL data warehouse** to **Power BI**, enabling dynamic updates through incremental data refresh. Each time new stock and news records are appended via the ETL pipeline, the dashboard automatically reflects the latest data upon refresh—ensuring real-time visibility into market trends and sentiment insights.
   
 ![Power BI Dashboard](./assets/stock_sentiment_dashboard.png)
 ------------------------------------------------------------------------
