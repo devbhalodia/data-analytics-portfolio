@@ -127,6 +127,7 @@ ticker\
 - Month-over-month price trend\
 - Price vs sentiment overlay\
 - Sentiment distribution donut chart
+  
 ![Power BI Dashboard](./assets/stock_sentiment_dashboard.png)
 ------------------------------------------------------------------------
 
