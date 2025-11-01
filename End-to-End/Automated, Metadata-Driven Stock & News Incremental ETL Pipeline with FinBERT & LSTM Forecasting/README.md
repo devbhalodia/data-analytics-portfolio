@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project is a **fully automated, metadata-driven Python-based incremental ETL and analytics system** that extracts real-time **stock data** and **financial news** using APIs, performs **exploratory data analysis (EDA)**, applies **sentiment analysis with FinBERT**, and **forecasts stock prices** using an LSTM deep learning model.  
+This project is a **fully automated, metadata-driven Python-based incremental ETL and analytics system** that extracts real-time **stock data** and **financial news** incrementally using APIs, performs **exploratory data analysis (EDA)**, applies **sentiment analysis with FinBERT**, and **forecasts stock prices** using an LSTM deep learning model.  
 It is designed for **incremental updates**, **zero manual intervention**, and **weekly automation via Windows Task Scheduler**.
 
 ------------------------------------------------------------------------
