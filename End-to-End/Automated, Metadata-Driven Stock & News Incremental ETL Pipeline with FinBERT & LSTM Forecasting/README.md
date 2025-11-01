@@ -25,7 +25,7 @@ It is designed for **incremental updates**, **zero manual intervention**, and **
 
 ## ETL Pipeline Architecture
 
-![ETL architecture](./assets/et_architecture_workflow.png)
+![ETL architecture](./assets/etl_architecture_workflow.png)
 
 ------------------------------------------------------------------------
 
