@@ -98,6 +98,15 @@ stock_sentiment_pipeline/
 
 ------------------------------------------------------------------------
 
+## Exploratory Data Analysis (EDA)
+
+- Conducted on the cleaned stock dataset to identify trends, distributions, and relationships among key financial indicators.  
+- **Univariate analysis** explored individual variables using statistical summaries and visualizations to assess spread, skewness, and outliers.  
+- **Bivariate analysis** examined relationships between predictors and the **target column (`daily_return`)** through correlation and trend-based comparisons.  
+- Helped validate data transformations, detect anomalies, and uncover early insights into stock behavior before downstream analysis.
+
+------------------------------------------------------------------------
+
 ## Sentiment Analysis
 
 -   FinBERT (pre-trained financial BERT) applied to each headline.
