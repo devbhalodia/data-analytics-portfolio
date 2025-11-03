@@ -104,13 +104,6 @@ def transform_stocks(input_path, output_path, last_stock_date=None):
 
     df_stocks = pd.concat(all_tickers, ignore_index=True)
 
-    # Save clean data
-    if not all_tickers:
-        print("[WARN] No valid tickers to process.")
-        return
-
-    df_stocks = pd.concat(all_tickers, ignore_index=True)
-
     # --- Combine with existing data (for true incremental append) ---
     if os.path.exists(output_path):
         existing = pd.read_parquet(output_path)
