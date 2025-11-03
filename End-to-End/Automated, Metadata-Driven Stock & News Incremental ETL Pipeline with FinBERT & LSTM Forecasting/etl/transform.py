@@ -32,7 +32,6 @@ def ensure_dirs(*dirs):
         Path(d).mkdir(parents=True, exist_ok=True)
 
 def load_metadata():
-    """Load existing metadata or create a default one on first run."""
     if os.path.exists(METADATA_PATH):
         with open(METADATA_PATH, "r") as f:
             return json.load(f)
@@ -129,72 +128,6 @@ def transform_stocks(input_path, output_path, last_stock_date=None):
 
     print(f"[SUCCESS] Stocks transformed and saved → {output_path}")
     print(f"[INFO] Final rows: {len(df_stocks)} | Columns: {list(df_stocks.columns)}")
-
-
-'''
-def transform_stocks(input_path, output_path, last_date=None):
-    print("[INFO] Starting stock transformation...")
-
-    df_stocks = pd.read_csv(input_path, header=1)
-    df_stocks.columns = df_stocks.columns.str.strip().str.lower()
-    print("Columns in df_stocks:", df_stocks.columns.tolist()[:20])
-    if df_stocks.empty:
-        print("[WARN] Empty stock CSV. Skipping.")
-        return
-
-    # Step 1: Identify tickers from first row
-    stock_first_row = df_stocks.iloc[0:1, :]
-    ticker_list = []
-    for i in stock_first_row.iloc[0]:
-        if pd.notna(i) and i not in ticker_list:
-            ticker_list.append(i)
-
-    all_tickers = []
-    for i, ticker in enumerate(ticker_list):
-        suffix = f".{i}" if i != 0 else ""
-        cols = [f"date", f"open{suffix}", f"high{suffix}", f"low{suffix}", f"close{suffix}", f"volume{suffix}"]
-
-        # Skip if missing columns (robustness)
-        cols = [c for c in cols if c in df_stocks.columns]
-        temp = df_stocks[cols].copy()
-
-        # Standardize column names
-        temp.columns = ["date", "open", "high", "low", "close", "volume"][:len(temp.columns)]
-
-        temp.dropna(inplace=True)
-        temp["ticker"] = ticker.strip().lower()
-
-        # Fix datatypes
-        temp["date"] = pd.to_datetime(temp["date"], errors="coerce")
-        num_cols = ["open", "high", "low", "close", "volume"]
-        for col in num_cols:
-            temp[col] = pd.to_numeric(temp[col], errors="coerce").apply(makenan)
-
-        # Derived metrics
-        temp = temp.sort_values("date").reset_index(drop=True)
-        temp["daily_pct_change"] = (temp["close"] - temp["open"]) / temp["open"] * 100
-        temp["price_range"] = temp["high"] - temp["low"]
-        temp["daily_return"] = temp["close"].pct_change() * 100
-        temp["cumulative_return"] = ((1 + temp["daily_return"] / 100).cumprod() - 1) * 100
-
-        all_tickers.append(temp)
-
-    df_stocks = pd.concat(all_tickers, ignore_index=True)
-    df_stocks.drop_duplicates(subset=["date", "ticker"], inplace=True)
-
-    # Incremental filtering if applicable
-    if last_date:
-        df_stocks = df_stocks[df_stocks["date"] > pd.to_datetime(last_date)]
-
-    if os.path.exists(output_path):
-        df_existing = pd.read_parquet(output_path)
-        df_stocks = pd.concat([df_existing, df_stocks], ignore_index=True)
-        df_stocks.drop_duplicates(subset=["date", "ticker"], inplace=True)
-
-    ensure_dirs(os.path.dirname(output_path))
-    df_stocks.to_parquet(output_path, index=False)
-    print(f"[INFO] Stocks transformed and saved ({len(df_stocks)} rows).")
-'''
 
 # -----------------------------
 # SENTIMENT MODEL (FinBERT)
