@@ -16,7 +16,8 @@ It is designed for **incremental updates**, **zero manual intervention**, and **
 - **Automation:** Scheduled weekly with **Windows Task Scheduler** using a `.bat` runner script.  
 - **Exploratory Data Analysis (EDA):**  
   - Performed **univariate** analysis to explore price distributions, volatility, and volume behavior.  
-  - Conducted **bivariate** analysis (with `daily_return` as the target) to assess feature correlations and relationships.  
+  - Conducted **bivariate** analysis (with `daily_return` as the target) to assess feature correlations and relationships.
+  - Performed **hypothesis Test** (ANOVA/KRUSKAL)  to uncover volatility patterns and sentiment-linked next day return shifts
 - **Sentiment Analysis:** Utilizes **FinBERT** to extract positive, negative, and neutral sentiments from financial headlines and correlates sentiment with short-term market returns.  
 - **Forecasting:** Employs **LSTM (TensorFlow)** for close-price prediction enhanced by engineered features (MA, RSI, MACD, Bollinger Bands, lag features, etc.).  
 - **Visualization:** Interactive **Power BI dashboard** connected directly to the **MySQL warehouse** for real-time insights on returns, sentiment, and trends.
